@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainList from './components/MainList';
+import ListaFav from './components/ListaFav';
+import ListaCompra from './components/ListaCompra';
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+
+
   render() {
+   
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container-catalogo">
+            <MainList></MainList>
+            <ListaCompra></ListaCompra>
+            <ListaFav></ListaFav>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps (state) {
+  return {
+
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App)
