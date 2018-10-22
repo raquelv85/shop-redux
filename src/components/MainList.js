@@ -3,21 +3,21 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faDollarSign, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { saveShop, addProducto, saveFav , deleteFav, deleteShop, deleteList, addUnidades } from '../actions';
+import { saveShop, addProduct, saveFav , deleteFav, deleteShop, deleteList, addUnity } from '../actions';
 import { deleteItems } from '../utils/delete_items'
 
 class MainList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nombre: "",
+      name: "",
       id: "",
-      unidades: 1
+      units: 1
     }
   }
 
   _add() {
-    this.props.addProducto(this.state)
+    this.props.addProduct(this.state)
   }
   _shop(id) {
 
@@ -27,10 +27,10 @@ class MainList extends Component {
     if (list.includes(item)) {
       list.map((item, index) => {
         if (item.id === id) {
-          item.unidades += 1;
+          item.units += 1;
         }
       });
-      this.props.addUnidades(list);
+      this.props.addUnity(list);
     } else {
       this.props.saveShop(item);
     }
@@ -52,7 +52,6 @@ class MainList extends Component {
     this.props.deleteList(shop)
     this._deleteShop(id);
     this._deleteFav(id);
-    console.log(this.props.fav)
   }
 
   _deleteShop(id) {
@@ -69,7 +68,6 @@ class MainList extends Component {
 
 
   render() {
-    console.log(this.props)
     return ( <div className = "container">
       <div className = "container-title">
       <h1 className = "title" > Catalogo </h1>
@@ -78,7 +76,7 @@ class MainList extends Component {
       <ul className = "list"> {
         this.props.list.map((item, index) => {
           return <li key={index} className = "item">
-            <p> {item.nombre} </p>
+            <p> {item.name} </p>
             <p><FontAwesomeIcon 
             onClick={this._shop.bind(this,item.id)}
             icon = {faDollarSign}/></p>
@@ -95,7 +93,7 @@ class MainList extends Component {
       onChange = {
         (e) => {
           this.setState({
-            nombre: e.target.value,
+            name: e.target.value,
             id: this.props.list.length
 
           })
@@ -111,21 +109,21 @@ class MainList extends Component {
 
 function mapStateToProps(state) {
   return {
-    list: state.catalogo.listaProductos,
-    shop: state.shop.compra,
-    fav: state.fav.favoritos
+    list: state.catalogue.productList,
+    shop: state.shop.shop,
+    fav: state.fav.favorites
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    addProducto: (producto) => dispatch(addProducto(producto)),
+    addProduct: (product) => dispatch(addProduct(product)),
     saveShop: (shop) => dispatch(saveShop(shop)),
     saveFav: (fav) => dispatch(saveFav(fav)),
     deleteList: (item) => dispatch(deleteList(item)),
     deleteShop: (item) => dispatch(deleteShop(item)),
     deleteFav: (item) => dispatch(deleteFav(item)),
-    addUnidades: (unidades) => dispatch(addUnidades(unidades))
+    addUnity: (units) => dispatch(addUnity(units))
   }
 }
 

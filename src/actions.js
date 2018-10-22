@@ -1,18 +1,18 @@
 import {
-  ADD_PRODUCTO,
+  ADD_PRODUCT,
   SAVE_SHOP,
   SAVE_FAV,
   DELETE_SHOP,
   DELETE_FAV,
   DELETE,
-  ADD_UNIDAD,
-  DELETE_UNIDAD,
+  ADD_UNITY,
+  DELETE_UNITY,
 } from './constants';
 
-export function addProducto(producto) {
+export function addProduct(product) {
   return {
-    type: ADD_PRODUCTO,
-    producto
+    type: ADD_PRODUCT,
+    product
   };
 }
 
@@ -52,19 +52,17 @@ export function deleteList(item) {
   };
 }
 
-export function addUnidades(unidad) {
-  console.log("unidades ", unidad)
+export function addUnity(unity) {
   return {
-    type: ADD_UNIDAD,
-    unidad
+    type: ADD_UNITY,
+    unity
   };
 }
 
-export function deleteUnidades(unidad) {
-  console.log("unidades",unidad)
+export function deleteUnits(unity) {
   return {
-    type: DELETE_UNIDAD,
-    unidad
+    type: DELETE_UNITY,
+    unity
   };
 }
 

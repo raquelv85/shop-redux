@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import MainList from './components/MainList';
-import ListaFav from './components/ListaFav';
-import ListaCompra from './components/ListaCompra';
+import ListFav from './components/ListFav';
+import ListShop from './components/ListShop';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -16,10 +16,10 @@ class App extends Component {
   render() {
    
     return (
-      <div className="container-catalogo">
+      <div className="container-catalogue">
             <MainList></MainList>
-            <ListaCompra></ListaCompra>
-            <ListaFav></ListaFav>
+            <ListShop></ListShop>
+            <ListFav></ListFav>
       </div>
     );
   }

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import catalogo from './storeCatalogo';
+import catalogue from './storeMain';
 import fav from './storeFav';
 import shop from './storeShop'
 
 const rootReducer = combineReducers({
-  catalogo,
+  catalogue,
   fav,
   shop
 })

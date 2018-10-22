@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deleteFav } from '../actions';
 import { deleteItems } from '../utils/delete_items'
 
-class ListaFav extends Component {
+class ListFav extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
@@ -26,7 +26,7 @@ class ListaFav extends Component {
         {
           this.props.ListaFav.map((item, index) =>{
               return <li key={index} className= "item">
-              <p>{item.nombre}</p>
+              <p>{item.name}</p>
               <p><FontAwesomeIcon onClick= {this._delete.bind(this, item.id)} icon={faTimes}/></p>
            </li>
           })
@@ -39,7 +39,7 @@ class ListaFav extends Component {
  
 function mapStateToProps (state) {
   return {
-    ListaFav : state.fav.favoritos
+    ListaFav : state.fav.favorites
   } 
 }
 
@@ -53,4 +53,4 @@ function mapDispatchToProps (dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ListaFav)
+)(ListFav)
