@@ -17,7 +17,10 @@ class MainList extends Component {
   }
 
   _add() {
-    this.props.addProduct(this.state)
+    
+      this.props.addProduct(this.state);
+
+      
   }
   _shop(id) {
 
